@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "concurrently --kill-others \"npm run frontend:dev\" \"npm run backend\"",
     "frontend:dev": "vite",
-    "backend": "node server.mjs",
+    "backend": "node backend.mjs",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "test:unit": "vitest run",

@@ -5,9 +5,11 @@ import process from 'process';
 
 const app = express();
 app.use(bodyParser.json());
+app.use(express.static('dist'));
+
 const LOG_REQUESTS = false;
 
-app.get('/', (req, res) => {
+app.get('/api/hello', (req, res) => {
   res.send('Hello there!');
 });
 
