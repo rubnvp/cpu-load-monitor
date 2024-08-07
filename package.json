@@ -18,10 +18,14 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "express": "^4.19.2",
     "body-parser": "^1.20.2",
+    "chart.js": "^4.4.3",
+    "chartjs-plugin-annotation": "^3.0.1",
+    "dayjs": "^1.11.12",
+    "express": "^4.19.2",
     "pinia": "^2.1.7",
     "vue": "^3.4.29",
+    "vue-chartjs": "^5.3.1",
     "vue-router": "^4.3.3"
   },
   "devDependencies": {
