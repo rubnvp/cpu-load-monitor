@@ -1,35 +1,23 @@
-# cpu-load-ui
-
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+# CPU Load Monitor
+Welcome to the CPU Load Monitor project! This project is a simple web application that monitors the CPU load of a server. This application is built with:
+- [Vue 3](https://vuejs.org/) with [Router](https://router.vuejs.org/), [Pinia](https://pinia.vuejs.org/) and [TypeScript](https://www.typescriptlang.org/).
+- [Vite](https://vitejs.dev/) for the build and development tool.
+- [Chart.js](https://vue-chartjs.org/) for the data visualization.
+- [Vitest](https://vitest.dev/) for unit testing.
+- [Cypress](https://www.cypress.io/) for end-to-end testing.
+- [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) for linting and formatting.
 
 ## Project Setup
-
+Make sure you have a stable node version (currently 22.5)
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+## Development
 
+### Compile and Hot-Reload for Development
 ```sh
 npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
 ```
 
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
@@ -44,18 +32,28 @@ npm run test:unit
 npm run test:e2e:dev
 ```
 
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
-
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
-
-```sh
-npm run build
-npm run test:e2e
-```
-
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
 npm run lint
+```
+
+### Format with [Prettier](https://prettier.io/)
+
+```sh
+npm run format
+```
+
+## Production
+
+### Type-Check, Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+### Serve the Production Build
+
+```sh
+npm run serve
 ```

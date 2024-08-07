@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import CpuLoadChart from '@/components/CpuLoadChart.vue'
-import AlertsTable from '@/components/AlertsTable.vue'
-import { useCpuLoadsStore } from '@/stores/cpuLoadsStore'
-import { useAlertsStore } from '@/stores/alertsStore'
-import { storeToRefs } from 'pinia'
-import { CPU_THRESHOLD } from '@/constants'
+import CpuLoadChart from '@/components/CpuLoadChart.vue';
+import AlertsTable from '@/components/AlertsTable.vue';
+import { useCpuLoadsStore } from '@/stores/cpuLoadsStore';
+import { useAlertsStore } from '@/stores/alertsStore';
+import { storeToRefs } from 'pinia';
+import { CPU_THRESHOLD } from '@/constants';
 
-const cpuLoadStore = useCpuLoadsStore()
-const alertsStore = useAlertsStore()
+const cpuLoadStore = useCpuLoadsStore();
+const alertsStore = useAlertsStore();
 
-const { cpuLoads, currentCpuLoad } = storeToRefs(cpuLoadStore)
-const { alerts, isOnHighLoadAlert } = storeToRefs(alertsStore)
+const { cpuLoads, currentCpuLoad } = storeToRefs(cpuLoadStore);
+const { alerts, isOnHighLoadAlert } = storeToRefs(alertsStore);
 
 function formatCpuLoad(value: number | undefined): string {
-  const num = Number(value)
-  return !isNaN(num) ? num.toFixed(2) : '-'
+  const num = Number(value);
+  return !isNaN(num) ? num.toFixed(2) : '-';
 }
 </script>
 

@@ -1,4 +1,4 @@
 export interface CpuLoadPoint {
-  value?: number
-  date: Date
+  value?: number;
+  date: Date;
 }

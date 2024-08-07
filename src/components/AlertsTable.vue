@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import { EVENT_TYPE_TO_LABEL_MAP } from '@/constants'
-import { type AlertEvent, EventType } from '@/types/alertEvent'
-import dayjs from 'dayjs'
-import { computed } from 'vue'
+import { EVENT_TYPE_TO_LABEL_MAP } from '@/constants';
+import { type AlertEvent, EventType } from '@/types/alertEvent';
+import dayjs from 'dayjs';
+import { computed } from 'vue';
 
 const props = defineProps<{
-  alerts: AlertEvent[]
-  hightlightedFirstRow?: boolean
-}>()
+  alerts: AlertEvent[];
+  hightlightedFirstRow?: boolean;
+}>();
 
 // computed property to reverse and avoid mutating the original array
-const alerts = computed(() => props.alerts.map((alert, index) => ({ ...alert, index: index + 1 })).reverse())
+const alerts = computed(() => props.alerts.map((alert, index) => ({ ...alert, index: index + 1 })).reverse());
 
 function formatEventName(event: EventType): string {
-  return EVENT_TYPE_TO_LABEL_MAP[event] ?? 'Unknown'
+  return EVENT_TYPE_TO_LABEL_MAP[event] ?? 'Unknown';
 }
 
 function formatTime(date: Date): string {
-  return dayjs(date).format('HH:mm:ss')
+  return dayjs(date).format('HH:mm:ss');
 }
 </script>
 

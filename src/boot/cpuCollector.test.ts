@@ -1,8 +1,8 @@
-import { describe, it, expect } from 'vitest'
-import { ref } from 'vue'
+import { describe, it, expect } from 'vitest';
+import { ref } from 'vue';
 
-import { checkForNewAlerts } from './cpuCollector'
-import { EventType } from '@/types/alertEvent'
+import { checkForNewAlerts } from './cpuCollector';
+import { EventType } from '@/types/alertEvent';
 
 describe('cpuCollector', () => {
   describe('checkForNewAlerts', () => {
@@ -13,14 +13,14 @@ describe('cpuCollector', () => {
         { value: 2, date: new Date('2000-01-01T00:00:20') },
         { value: 2, date: new Date('2000-01-01T00:00:30') },
         { value: 2, date: new Date('2000-01-01T00:00:40') },
-      ])
-      const isOnHighLoadAlert = ref(false)
+      ]);
+      const isOnHighLoadAlert = ref(false);
       const undefinedResult = checkForNewAlerts({
         cpuLoads,
         isOnHighLoadAlert,
-      })
-      expect(undefinedResult).toBeUndefined()
-    })
+      });
+      expect(undefinedResult).toBeUndefined();
+    });
 
     it('should return HIGH_CPU_LOAD if all the cpuLoads are above the CPU_THRESHOLD and we are not already on high load alert', () => {
       const cpuLoads = ref([
@@ -36,20 +36,20 @@ describe('cpuCollector', () => {
         { value: 2, date: new Date('2000-01-01T00:01:30') },
         { value: 2, date: new Date('2000-01-01T00:01:40') },
         { value: 2, date: new Date('2000-01-01T00:01:50') },
-      ])
+      ]);
       const highLoadResult = checkForNewAlerts({
         cpuLoads,
         isOnHighLoadAlert: ref(false),
-      })
-      expect(highLoadResult).toBe(EventType.HIGH_CPU_LOAD)
+      });
+      expect(highLoadResult).toBe(EventType.HIGH_CPU_LOAD);
 
       // Avoid trigger the alert again
       const undefinedResult = checkForNewAlerts({
         cpuLoads,
         isOnHighLoadAlert: ref(true),
-      })
-      expect(undefinedResult).toBeUndefined()
-    })
+      });
+      expect(undefinedResult).toBeUndefined();
+    });
 
     it('should return RECOVERED_CPU_LOAD if all the cpuLoads are below the CPU_THRESHOLD and we are on high load alert', () => {
       const cpuLoads = ref([
@@ -65,20 +65,20 @@ describe('cpuCollector', () => {
         { value: 0.5, date: new Date('2000-01-01T00:01:30') },
         { value: 0.5, date: new Date('2000-01-01T00:01:40') },
         { value: 0.5, date: new Date('2000-01-01T00:01:50') },
-      ])
+      ]);
       const recoveredResult = checkForNewAlerts({
         cpuLoads,
         isOnHighLoadAlert: ref(true),
-      })
-      expect(recoveredResult).toBe(EventType.RECOVERED_CPU_LOAD)
+      });
+      expect(recoveredResult).toBe(EventType.RECOVERED_CPU_LOAD);
 
       // Avoid trigger the alert again
       const undefinedResult = checkForNewAlerts({
         cpuLoads,
         isOnHighLoadAlert: ref(false),
-      })
-      expect(undefinedResult).toBeUndefined()
-    })
+      });
+      expect(undefinedResult).toBeUndefined();
+    });
 
     it('should return undefined if the cpuLoads are mixed independently of the current alert status', () => {
       const cpuLoads = ref([
@@ -94,17 +94,17 @@ describe('cpuCollector', () => {
         { value: 0.5, date: new Date('2000-01-01T00:01:30') },
         { value: 2, date: new Date('2000-01-01T00:01:40') },
         { value: 0.5, date: new Date('2000-01-01T00:01:50') },
-      ])
+      ]);
       const undefinedResult1 = checkForNewAlerts({
         cpuLoads,
         isOnHighLoadAlert: ref(false),
-      })
-      expect(undefinedResult1).toBeUndefined()
+      });
+      expect(undefinedResult1).toBeUndefined();
       const undefinedResult2 = checkForNewAlerts({
         cpuLoads,
         isOnHighLoadAlert: ref(true),
-      })
-      expect(undefinedResult2).toBeUndefined()
-    })
-  })
-})
+      });
+      expect(undefinedResult2).toBeUndefined();
+    });
+  });
+});

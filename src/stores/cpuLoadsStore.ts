@@ -1,21 +1,21 @@
-import { computed, ref } from 'vue'
-import { defineStore } from 'pinia'
-import type { CpuLoadPoint } from '@/types/cpuLoadPoint'
-import { WINDOW_HISTORY_LENGTH } from '@/constants'
+import { computed, ref } from 'vue';
+import { defineStore } from 'pinia';
+import type { CpuLoadPoint } from '@/types/cpuLoadPoint';
+import { WINDOW_HISTORY_LENGTH } from '@/constants';
 
 export const useCpuLoadsStore = defineStore('cpuLoads', () => {
-  const cpuLoads = ref<CpuLoadPoint[]>([])
-  const currentCpuLoad = computed<number | undefined>(() => cpuLoads.value[cpuLoads.value.length - 1]?.value)
+  const cpuLoads = ref<CpuLoadPoint[]>([]);
+  const currentCpuLoad = computed<number | undefined>(() => cpuLoads.value[cpuLoads.value.length - 1]?.value);
 
   function addCpuLoad(cpuLoad: number): void {
-    // shift the data in order to keep a maximum window length
+    // shift the data in order to keep a maximum window length and avoid memory leaks
     if (cpuLoads.value.length >= WINDOW_HISTORY_LENGTH) {
-      cpuLoads.value.shift()
+      cpuLoads.value.shift();
     }
     cpuLoads.value.push({
       value: cpuLoad,
       date: new Date(),
-    })
+    });
   }
-  return { cpuLoads, currentCpuLoad, addCpuLoad }
-})
+  return { cpuLoads, currentCpuLoad, addCpuLoad };
+});

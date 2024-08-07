@@ -10,7 +10,7 @@
     "frontend:dev": "vite",
     "backend": "node backend.mjs",
     "build": "run-p type-check \"build-only {@}\" --",
-    "app": "NODE_ENV=production PORT=8080 run-p backend open",
+    "serve": "NODE_ENV=production PORT=8080 run-p backend open",
     "open": "open http://localhost:8080",
     "test:unit": "vitest run",
     "test:unit:watch": "vitest",
