@@ -2,7 +2,7 @@
 import { EVENT_TYPE_TO_LABEL_MAP } from '@/constants'
 import { type AlertEvent, EventType } from '@/types/alertEvent'
 import dayjs from 'dayjs'
-import { defineProps, computed } from 'vue'
+import { computed } from 'vue'
 
 const props = defineProps<{
   alerts: AlertEvent[]

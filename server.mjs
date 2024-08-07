@@ -5,6 +5,7 @@ import process from 'process';
 
 const app = express();
 app.use(bodyParser.json());
+const LOG_REQUESTS = false;
 
 app.get('/', (req, res) => {
   res.send('Hello there!');
@@ -15,7 +16,9 @@ app.get('/api/cpu-load', (req, res) => {
   const cpusCount = os.cpus().length;
   // normalized last minute CPU load average
   const loadAverage = lastMinuteLoad / cpusCount;
-  console.log(req.originalUrl, loadAverage);
+  if (LOG_REQUESTS) {
+    console.log(req.originalUrl, loadAverage);
+  }
   res.json({ loadAverage });
 });
 
@@ -27,5 +30,5 @@ app.use((req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
+  console.log(`Backend server is listening on port ${PORT}`);
 });
