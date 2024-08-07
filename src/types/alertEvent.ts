@@ -4,6 +4,6 @@ export enum EventType {
 }
 
 export interface AlertEvent {
-  event: EventType;
-  date: Date;
+  event: EventType
+  date: Date
 }

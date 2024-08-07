@@ -1,6 +1,7 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const os = require('os');
+import express from 'express';
+import bodyParser from 'body-parser';
+import os from 'os';
+import process from 'process';
 
 const app = express();
 app.use(bodyParser.json());
@@ -19,7 +20,7 @@ app.get('/api/cpu-load', (req, res) => {
 });
 
 // log not found errors
-app.use((req, res, next) => {
+app.use((req, res) => {
   console.error('Not found', req.originalUrl);
   res.status(404).send('Not found');
 });
