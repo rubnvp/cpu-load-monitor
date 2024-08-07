@@ -11,9 +11,11 @@ import {
   LinearScale,
   PointElement,
   Filler,
+  type ChartData,
+  type ChartOptions,
 } from 'chart.js'
 import annotationPlugin from 'chartjs-plugin-annotation'
-import { type CpuLoadPoint } from '@/types/cpuLoadData'
+import { type CpuLoadPoint } from '@/types/cpuLoadPoint'
 import { TIME_INTERVAL, WINDOW_HISTORY_LENGTH, CPU_THRESHOLD } from '@/constants'
 import dayjs from 'dayjs'
 
@@ -61,7 +63,7 @@ const chartData = computed(() => ({
       tension: 0.1,
     },
   ],
-}))
+}) as ChartData<'line'>)
 
 const chartOptions = computed(() => ({
   responsive: true,
@@ -96,7 +98,7 @@ const chartOptions = computed(() => ({
       },
     },
   },
-}))
+}) as ChartOptions<'line'>)
 </script>
 
 <template>
