@@ -6,6 +6,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
+      // Lazy-loaded when the route is visited
       component: () => import('../views/RealTimeView.vue'),
     },
   ],
