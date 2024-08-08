@@ -12,11 +12,6 @@ const alertsStore = useAlertsStore();
 
 const { cpuLoads, currentCpuLoad } = storeToRefs(cpuLoadStore);
 const { alerts, isOnHighLoadAlert } = storeToRefs(alertsStore);
-
-function formatCpuLoad(value: number | undefined): string {
-  const num = Number(value);
-  return !isNaN(num) ? num.toFixed(2) : '-';
-}
 </script>
 
 <template>
@@ -28,7 +23,8 @@ function formatCpuLoad(value: number | undefined): string {
       <div class="current-cpu-wrapper">
         Current CPU load
         <CurrentCpu
-          class="current-cpu" :class="{ highlighted: (currentCpuLoad ?? 0) > CPU_THRESHOLD }"
+          class="current-cpu"
+          :class="{ highlighted: (currentCpuLoad ?? 0) > CPU_THRESHOLD }"
           :cpuLoad="currentCpuLoad"
         />
         <span v-if="isOnHighLoadAlert">Under high average load!</span>

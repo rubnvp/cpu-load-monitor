@@ -11,7 +11,7 @@ describe('CPU Load Monitor', () => {
     cy.visit('/')
     cy.contains('h2', '1.5')
     cy.contains('div', 'No alerts registered')
-    cy.wait(2 * 60 * 1000 + 10 * 1000) // wait for ~2 minutes to trigger the alert
+    cy.wait(2 * 60 * 1000) // wait for 2 minutes to trigger the alert
     cy.contains('div', 'High average CPU load')
   })
 })
