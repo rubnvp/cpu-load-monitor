@@ -9,6 +9,12 @@ Welcome to the CPU Load Monitor project! 🤗. This project is a simple web appl
 - [Cypress](https://www.cypress.io/) for end-to-end testing.
 - [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) for linting and formatting.
 
+## Screenshots
+Monitoring CPU
+![CPU Load Monitor](./readme-images/cpu-load-monitor.jpeg)
+Alerting High CPU Load
+![CPU Load High](./readme-images/cpu-load-high.jpeg)
+
 ## Project Setup 
 Make sure you have a stable node version (currently 22.5)
 ```sh
