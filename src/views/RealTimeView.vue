@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import CpuLoadChart from '@/components/CpuLoadChart.vue';
+import CurrentCpu from '@/components/CurrentCpu.vue';
 import AlertsTable from '@/components/AlertsTable.vue';
 import { useCpuLoadsStore } from '@/stores/cpuLoadsStore';
 import { useAlertsStore } from '@/stores/alertsStore';
@@ -26,10 +27,11 @@ function formatCpuLoad(value: number | undefined): string {
       </div>
       <div class="current-cpu-wrapper">
         Current CPU load
-        <h2 class="current-cpu" :class="{ highlighted: (currentCpuLoad ?? 0) > CPU_THRESHOLD }">
-          {{ formatCpuLoad(currentCpuLoad) }}
-        </h2>
-        <span v-show="isOnHighLoadAlert">Under high average load!</span>
+        <CurrentCpu
+          class="current-cpu" :class="{ highlighted: (currentCpuLoad ?? 0) > CPU_THRESHOLD }"
+          :cpuLoad="currentCpuLoad"
+        />
+        <span v-if="isOnHighLoadAlert">Under high average load!</span>
       </div>
     </div>
     <div>

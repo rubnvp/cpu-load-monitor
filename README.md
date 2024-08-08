@@ -3,6 +3,7 @@ Welcome to the CPU Load Monitor project! 🤗. This project is a simple web appl
 - [Vue 3](https://vuejs.org/) with [Router](https://router.vuejs.org/), [Pinia](https://pinia.vuejs.org/) and [TypeScript](https://www.typescriptlang.org/).
 - [Vite](https://vitejs.dev/) for the build and development tool.
 - [Chart.js](https://vue-chartjs.org/) for the data visualization.
+- [Anime.js](https://animejs.com/) for the current CPU change animation.
 - [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) natively supported for a simple dark/light mode.
 - [Vitest](https://vitest.dev/) for unit testing.
 - [Cypress](https://www.cypress.io/) for end-to-end testing.
@@ -19,6 +20,12 @@ npm install
 ### Compile and Hot-Reload for Development
 ```sh
 npm run dev
+```
+
+### Increase your CPU load with [Stress](https://github.com/resurrecting-open-source-projects/stress)
+```sh
+brew install stress
+stress --cpu 16
 ```
 
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
